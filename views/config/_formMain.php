@@ -2,7 +2,7 @@
 use yii\helpers\Url;
 /**
  * @var yii\web\View $this
- * @var bariew\templateModule\models\Config $model
+ * @var bariew\templateAbstractModule\models\Config $model
  * @var yii\widgets\ActiveForm $form
  */
 ?>

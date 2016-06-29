@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 /**
  * @var yii\web\View $this
- * @var bariew\templateModule\models\Config $model
+ * @var bariew\templateAbstractModule\models\Config $model
  */
 
 $this->title = Yii::t('modules/template', 'Update Notification Config#{number}', ['number' => $model->id]);

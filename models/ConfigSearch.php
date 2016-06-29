@@ -5,7 +5,7 @@
  * @license http://www.opensource.org/licenses/bsd-license.php
  */
 
-namespace bariew\templateModule\models;
+namespace bariew\templateAbstractModule\models;
 
 use bariew\abstractModule\models\AbstractModelExtender;
 use Yii;

@@ -1,8 +1,8 @@
 {
-    "name": "bariew/yii2-template-module",
+    "name": "bariew/yii2-module-abstract-template",
     "description": "",
     "type": "yii2-extension",
-    "keywords": ["yii2","module","email", "template"],
+    "keywords": ["yii2","module","email","abstract","template"],
     "license": "BSD-3-Clause",
     "authors": [
         {
@@ -14,15 +14,16 @@
       "bariew/yii2-tools": "dev-master",
       "bariew/yii2-abstract-module": "dev-master",
       "vova07/yii2-imperavi-widget": "^1.0@dev",
+      "kartik-v/yii2-mpdf": "dev-master",
       "kartik-v/yii2-widget-depdrop": "dev-master",
       "kartik-v/yii2-widget-select2": "dev-master"
     },
     "autoload": {
         "psr-4": {
-            "bariew\\templateModule\\": ""
+            "bariew\\templateAbstractModule\\": ""
         }
     },
     "extra": {
-      "bootstrap": "bariew\\templateModule\\TemplateBootstrap"
+      "bootstrap": "bariew\\templateAbstractModule\\TemplateBootstrap"
     }
 }

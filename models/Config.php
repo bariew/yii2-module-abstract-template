@@ -5,14 +5,16 @@
  * @license http://www.opensource.org/licenses/bsd-license.php
  */
 
-namespace bariew\templateModule\models;
+namespace bariew\templateAbstractModule\models;
 
 use bariew\abstractModule\models\AbstractModel;
 use bariew\yii2Tools\helpers\ClassHelper;
 use bariew\yii2Tools\behaviors\SerializeBehavior;
+use kartik\mpdf\Pdf;
 use Yii;
 use yii\base\Event;
 use yii\db\ActiveRecord;
+use yii\helpers\Inflector;
 
 /**
  * Description.
@@ -34,6 +36,7 @@ class Config extends AbstractModel
 {
     const TYPE_EMAIL = 1;
     const TYPE_SMS = 2;
+    const TYPE_PDF = 3;
 
     /**
      * @param ActiveRecord|bool $model
@@ -160,7 +163,7 @@ class Config extends AbstractModel
     }
 
     /**
-     * prepares and sends email content
+     * sends email content
      * @return bool whether email is sent
      */
     public function email()
@@ -173,9 +176,44 @@ class Config extends AbstractModel
             ->send();
     }
 
-    public function sendSms()
+    /**
+     * sends sms
+     * @return bool
+     */
+    public function sms()
     {
         return false;
+    }
+
+    /**
+     * sends odf file
+     * @param array $options
+     * @return Pdf
+     */
+    public function pdf($options = [])
+    {
+        return (new Pdf(array_merge_recursive([
+            // set to use core fonts only
+            'mode' => Pdf::MODE_CORE,
+            // A4 paper format
+            'format' => Pdf::FORMAT_A4,
+            // portrait orientation
+            'orientation' => Pdf::ORIENT_PORTRAIT,
+            // stream to browser inline
+            'destination' => Pdf::DEST_DOWNLOAD,
+            // your html content input
+            'content' => $this->content,
+            // set mPDF properties on the fly
+            'options' => ['title' => $this->subject],
+            'filename'=>  Inflector::slug($this->subject) . '.pdf',
+
+            'marginLeft' => 0,
+            'marginRight' => 0,
+            'marginTop' => 0,
+            'marginBottom' => 0,
+            'marginHeader' => 0,
+            'marginFooter' => 0,
+        ], $options)))->render();
     }
 
     public static function handleEvent(Event $event)
@@ -196,7 +234,10 @@ class Config extends AbstractModel
                     $config->email();
                     break;
                 case static::TYPE_SMS:
-                    $config->sendSms();
+                    $config->sms();
+                    break;
+                case static::TYPE_PDF;
+                    $config->pdf();
                     break;
             }
         }

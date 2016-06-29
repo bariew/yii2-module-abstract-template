@@ -1,11 +1,11 @@
 <?php
 
-namespace bariew\templateModule\controllers;
+namespace bariew\templateAbstractModule\controllers;
 
 use bariew\abstractModule\controllers\AbstractModelController;
-use bariew\templateModule\helpers\ClassHelper;
+use bariew\templateAbstractModule\helpers\ClassHelper;
 use Yii;
-use bariew\templateModule\models\Config;
+use bariew\templateAbstractModule\models\Config;
 use yii\helpers\Json;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
