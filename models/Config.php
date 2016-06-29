@@ -198,7 +198,7 @@ class Config extends AbstractModel
     {
         return (new Pdf(array_merge_recursive([
             // set to use core fonts only
-            'mode' => Pdf::MODE_CORE,
+            'mode' => Pdf::MODE_UTF8,
             // A4 paper format
             'format' => Pdf::FORMAT_A4,
             // portrait orientation
