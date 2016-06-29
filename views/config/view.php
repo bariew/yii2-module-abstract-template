@@ -5,7 +5,7 @@ use yii\widgets\DetailView;
 
 /**
  * @var yii\web\View $this
- * @var bariew\templateAbstractModule\models\Config $model
+ * @var bariew\templateAbstractAbstractModule\models\Config $model
  */
 
 $this->title = Yii::t('modules/template', 'Notification Config#{number}', ['number' => $model->id]);

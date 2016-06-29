@@ -6,7 +6,7 @@ use yii\grid\GridView;
 /**
  * @var yii\web\View $this
  * @var yii\data\ActiveDataProvider $dataProvider
- * @var bariew\templateAbstractModule\models\ConfigSearch $searchModel
+ * @var bariew\templateAbstractAbstractModule\models\ConfigSearch $searchModel
  */
 
 $this->title = Yii::t('modules/template', 'Notification Configs');

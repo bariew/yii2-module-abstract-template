@@ -5,9 +5,9 @@
  * @license http://www.opensource.org/licenses/bsd-license.php
  */
 
-namespace bariew\templateAbstractModule\models;
+namespace bariew\templateAbstractAbstractModule\models;
 
-use bariew\abstractModule\models\AbstractModel;
+use bariew\abstractAbstractModule\models\AbstractModel;
 use bariew\yii2Tools\helpers\ClassHelper;
 use bariew\yii2Tools\behaviors\SerializeBehavior;
 use kartik\mpdf\Pdf;

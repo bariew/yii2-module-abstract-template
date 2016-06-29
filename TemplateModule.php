@@ -1,10 +1,10 @@
 <?php
 
-namespace bariew\templateAbstractModule;
+namespace bariew\templateAbstractAbstractModule;
 
-use bariew\abstractModule\AbstractModule;
+use bariew\abstractAbstractModule\AbstractModule;
 
-class templateAbstractModule extends AbstractModule
+class TemplateModule extends AbstractModule
 {
     public $params = [
         'menu'  => [

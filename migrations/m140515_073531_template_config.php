@@ -1,5 +1,5 @@
 <?php
-use bariew\templateAbstractModule\models\Config;
+use bariew\templateAbstractAbstractModule\models\Config;
 
 class m140515_073531_template_config extends \yii\db\Migration
 {

@@ -5,9 +5,9 @@
  * @license http://www.opensource.org/licenses/bsd-license.php
  */
 
-namespace bariew\templateAbstractModule;
+namespace bariew\templateAbstractAbstractModule;
 
-use bariew\templateAbstractModule\models\Config;
+use bariew\templateAbstractAbstractModule\models\Config;
 use yii\base\BootstrapInterface;
 use yii\base\Event;
 
@@ -26,7 +26,7 @@ class TemplateBootstrap implements BootstrapInterface
     public function bootstrap($app)
     {
         /** @var Config $configClass */
-        $configClass = templateAbstractModule::getNamespace() . '\\models\\Config';
+        $configClass = TemplateModule::getNamespace() . '\\models\\Config';
         if (!$app->db->schema->getTableSchema($configClass::tableName())) {
             return;
         }

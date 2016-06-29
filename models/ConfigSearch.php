@@ -5,9 +5,9 @@
  * @license http://www.opensource.org/licenses/bsd-license.php
  */
 
-namespace bariew\templateAbstractModule\models;
+namespace bariew\templateAbstractAbstractModule\models;
 
-use bariew\abstractModule\models\AbstractModelExtender;
+use bariew\abstractAbstractModule\models\AbstractModelExtender;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;

@@ -5,7 +5,7 @@ use yii\widgets\ActiveForm;
 use yii\widgets\DetailView;
 /**
  * @var yii\web\View $this
- * @var bariew\templateAbstractModule\models\Config $model
+ * @var bariew\templateAbstractAbstractModule\models\Config $model
  * @var yii\widgets\ActiveForm $form
  */
 ?>
