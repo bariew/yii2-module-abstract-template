@@ -5,11 +5,11 @@ use yii\widgets\DetailView;
 
 /**
  * @var yii\web\View $this
- * @var bariew\templateAbstractAbstractModule\models\Config $model
+ * @var bariew\templateAbstractModule\models\Config $model
  */
 
-$this->title = Yii::t('modules/template', 'Notification Config#{number}', ['number' => $model->id]);
-$this->params['breadcrumbs'][] = ['label' => Yii::t('modules/template', 'Notification Configs'), 'url' => ['index']];
+$this->title = Yii::t('modules/template', 'Template#{number}', ['number' => $model->id]);
+$this->params['breadcrumbs'][] = ['label' => Yii::t('modules/template', 'Templates'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="config-view">

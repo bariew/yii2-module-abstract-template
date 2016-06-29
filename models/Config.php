@@ -5,9 +5,9 @@
  * @license http://www.opensource.org/licenses/bsd-license.php
  */
 
-namespace bariew\templateAbstractAbstractModule\models;
+namespace bariew\templateAbstractModule\models;
 
-use bariew\abstractAbstractModule\models\AbstractModel;
+use bariew\abstractModule\models\AbstractModel;
 use bariew\yii2Tools\helpers\ClassHelper;
 use bariew\yii2Tools\behaviors\SerializeBehavior;
 use kartik\mpdf\Pdf;
@@ -73,10 +73,13 @@ class Config extends AbstractModel
     public function rules()
     {
         return [
-            [['content', 'subject', 'model_class', 'model_event', 'address', 'type'], 'required'],
+            [['content', 'subject', 'model_class', 'model_event', 'type'], 'required'],
             [['model_class', 'model_event', 'address'], 'string', 'max' => 255],
             ['type', 'default', 'value' => static::TYPE_EMAIL],
-            [['content', 'subject'], 'safe']
+            [['content', 'subject'], 'safe'],
+            ['address', 'required', 'when' => function($data){return in_array($data->type, [
+                static::TYPE_EMAIL, static::TYPE_SMS
+            ]);}],
         ];
     }
 
@@ -138,6 +141,7 @@ class Config extends AbstractModel
         return [
             static::TYPE_EMAIL  => Yii::t('modules/template', 'Email'),
             static::TYPE_SMS    => Yii::t('modules/template', 'Sms'),
+            static::TYPE_PDF    => Yii::t('modules/template', 'Pdf'),
         ];
     }
 
@@ -237,7 +241,7 @@ class Config extends AbstractModel
                     $config->sms();
                     break;
                 case static::TYPE_PDF;
-                    $config->pdf();
+                    $config->pdf(); Yii::$app->end();
                     break;
             }
         }

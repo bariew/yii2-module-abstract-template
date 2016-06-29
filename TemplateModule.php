@@ -1,8 +1,8 @@
 <?php
 
-namespace bariew\templateAbstractAbstractModule;
+namespace bariew\templateAbstractModule;
 
-use bariew\abstractAbstractModule\AbstractModule;
+use bariew\abstractModule\AbstractModule;
 
 class TemplateModule extends AbstractModule
 {
@@ -10,7 +10,7 @@ class TemplateModule extends AbstractModule
         'menu'  => [
             'label' => 'Settings',
             'items' => [[
-                'label'    => 'Notifications',
+                'label'    => 'Templates',
                 'url' => ['/template/config/index']
             ]]
         ]

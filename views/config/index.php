@@ -6,17 +6,17 @@ use yii\grid\GridView;
 /**
  * @var yii\web\View $this
  * @var yii\data\ActiveDataProvider $dataProvider
- * @var bariew\templateAbstractAbstractModule\models\ConfigSearch $searchModel
+ * @var bariew\templateAbstractModule\models\ConfigSearch $searchModel
  */
 
-$this->title = Yii::t('modules/template', 'Notification Configs');
+$this->title = Yii::t('modules/template', 'Templates');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="config-index">
 
     <h1>
         <?php echo Html::encode($this->title) ?>
-        <?php echo Html::a(Yii::t('modules/template', 'Create Notification Config'), ['create'], ['class' => 'btn btn-success pull-right']) ?>
+        <?php echo Html::a(Yii::t('modules/template', 'Create Template'), ['create'], ['class' => 'btn btn-success pull-right']) ?>
     </h1>
 
     <?php echo GridView::widget([

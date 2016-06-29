@@ -5,9 +5,9 @@
  * @license http://www.opensource.org/licenses/bsd-license.php
  */
 
-namespace bariew\templateAbstractAbstractModule;
+namespace bariew\templateAbstractModule;
 
-use bariew\templateAbstractAbstractModule\models\Config;
+use bariew\templateAbstractModule\models\Config;
 use yii\base\BootstrapInterface;
 use yii\base\Event;
 

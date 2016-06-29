@@ -4,11 +4,11 @@ use yii\helpers\Html;
 
 /**
  * @var yii\web\View $this
- * @var bariew\templateAbstractAbstractModule\models\Config $model
+ * @var bariew\templateAbstractModule\models\Config $model
  */
 
-$this->title = Yii::t('modules/template', 'Create Notification Config');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('modules/template', 'Notification Configs'), 'url' => ['index']];
+$this->title = Yii::t('modules/template', 'Create Template');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('modules/template', 'Templates'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="config-create">
