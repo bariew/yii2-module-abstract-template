@@ -226,7 +226,9 @@ class Config extends AbstractModel
         $sender = $event->sender;
         /** @var static $config */
         foreach (static::findForEvent($event)->all() as $config) {
-            $variables = $config->variables($sender);
+            $variables = array_filter($config->variables($sender), function($v){
+                return !is_array($v) && !is_object($v);
+            });
             foreach (['address', 'subject', 'content'] as $attribute) {
                 $value = (is_array($config->$attribute)
                     ? (@$config->{$attribute}[Yii::$app->language] ?: reset($config->$attribute))
