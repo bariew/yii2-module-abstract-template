@@ -39,35 +39,6 @@ class Config extends AbstractModel
     const TYPE_PDF = 3;
 
     /**
-     * @param ActiveRecord|bool $model
-     * @return array
-     */
-    public function variables($model = false)
-    {
-        $result = [];
-        $variables = [
-            '{{site_url}}'  => Yii::$app->request->hostInfo,
-            '{{site_name}}' => Yii::$app->name,
-            '{{admin_email}}' => @Yii::$app->params['adminEmail'],
-        ];
-        if ($model || $this->model_class) {
-            /** @var ActiveRecord $sender */
-            $sender = $model ? : new $this->model_class();
-            foreach ($sender->attributeLabels() as $attribute => $label) {
-                if (!isset($sender->$attribute)) {
-                    continue;
-                }
-                $variables["{{{$attribute}}}"] = $model ? $model->$attribute : $label;
-            }
-        }
-
-        foreach ($variables as $label => $value) {
-            $model ? ($result[$label] = $value) : ($result[] = compact('label', 'value'));
-        }
-        return $result;
-    }
-
-    /**
      * @inheritdoc
      */
     public function rules()
@@ -164,6 +135,34 @@ class Config extends AbstractModel
             'model_class' => get_class($sender),
             'owner_id' => $sender->getAttribute('owner_id'),
         ]);
+    }
+
+    /**
+     * @param ActiveRecord|bool $model
+     * @return array
+     */
+    public function variables($model = false)
+    {
+        $result = [];
+        $variables = [
+            '{{site_url}}'  => Yii::$app->request->hostInfo,
+            '{{site_name}}' => Yii::$app->name,
+            '{{admin_email}}' => @Yii::$app->params['adminEmail'],
+        ];
+        if ($model || $this->model_class) {
+            /** @var ActiveRecord $sender */
+            $sender = $model ? : new $this->model_class();
+            foreach ($sender->attributeLabels() as $attribute => $label) {
+                $variables["{{{$attribute}}}"] = $model
+                    ? @$model->$attribute
+                    : $label;
+            }
+        }
+
+        foreach ($variables as $label => $value) {
+            $model ? ($result[$label] = $value) : ($result[] = compact('label', 'value'));
+        }
+        return $result;
     }
 
     /**
