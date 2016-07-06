@@ -26,7 +26,6 @@ $this->params['breadcrumbs'][] = $this->title;
             \bariew\yii2Tools\helpers\GridHelper::listFormat($searchModel, 'type'),
             'address',
             \bariew\yii2Tools\helpers\GridHelper::arrayFormat($searchModel, 'subject'),
-            \bariew\yii2Tools\helpers\GridHelper::arrayFormat($searchModel, 'content'),
             \bariew\yii2Tools\helpers\GridHelper::listFormat($searchModel, 'model_class'),
             \bariew\yii2Tools\helpers\GridHelper::listFormat($searchModel, 'model_event'),
             ['class' => 'yii\grid\ActionColumn'],
