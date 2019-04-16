@@ -1,13 +1,13 @@
 <?php
+/**
+ * ConfigController class file.
+ */
 
 namespace bariew\templateAbstractModule\controllers;
 
 use bariew\abstractModule\controllers\AbstractModelController;
-use bariew\templateAbstractModule\helpers\ClassHelper;
 use Yii;
 use bariew\templateAbstractModule\models\Config;
-use yii\helpers\Json;
-use yii\web\NotFoundHttpException;
 use yii\web\Response;
 use yii\widgets\DetailView;
 
@@ -30,9 +30,12 @@ class ConfigController extends AbstractModelController
         foreach ($result as $id => $name) {
             $output[] = compact('id', 'name');
         }
-        echo Json::encode(['output' => $output, 'selected' => '']);
+        return ['output' => $output, 'selected' => ''];
     }
 
+    /**
+     *
+     */
     public function actionModelVariables()
     {
         /** @var Config $model */
