@@ -15,6 +15,7 @@ use Yii;
 use yii\base\Event;
 use yii\db\ActiveRecord;
 use yii\helpers\Inflector;
+use yii\helpers\Url;
 
 /**
  * Description.
@@ -145,7 +146,7 @@ class Config extends AbstractModel
     {
         $result = [];
         $variables = [
-            '{{site_url}}'  => Yii::$app->request->hostInfo,
+            '{{site_url}}'  => Url::base(true),
             '{{site_name}}' => Yii::$app->name,
             '{{admin_email}}' => @Yii::$app->params['adminEmail'],
         ];
