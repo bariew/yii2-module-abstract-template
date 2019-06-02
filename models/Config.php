@@ -134,7 +134,9 @@ class Config extends AbstractModel
         return static::find()->andWhere([
             'model_event' => $event->name,
             'model_class' => get_class($sender),
-            'owner_id' => $sender->getAttribute('owner_id'),
+        ])->andWhere(['OR',
+            ['owner_id' => $sender->getAttribute('owner_id')],
+            'owner_id IS NULL'
         ]);
     }
 
